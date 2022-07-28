@@ -22,7 +22,7 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route index element={<AllMeetupsPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
+            <Route path="/meetups_favorites" element={<FavoritesPage />} />
             <Route path="/all_meetups" element={<AllMeetupsPage />} />
             <Route path="/add_meetups" element={<NewMeetupsPage />} />
           </Routes>

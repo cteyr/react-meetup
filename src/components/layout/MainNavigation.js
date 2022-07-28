@@ -31,7 +31,7 @@ export default function MainNavigation({ setPage }) {
           </li>
           <li>
             <a
-              href="http://localhost:3000/favorites"
+              href="http://localhost:3000/meetups_favorites"
               onClick={() => setPage(FAVORITES_PAGE)}
             >
               My Favorites
