@@ -9,12 +9,15 @@ export default function AllMeetupsPage() {
 
   const data_stringify = JSON.stringify(data);
   const data_parse = JSON.parse(data_stringify);
+  console.log(data_parse);
 
   return (
     <section className={classes.item}>
       <h1>All Meetups</h1>
       <ul className={classes.list}>
-        <MeetupItem />
+        {data_parse?.map((element) => (
+          <MeetupItem key={element.id} />
+        ))}
       </ul>
     </section>
   );

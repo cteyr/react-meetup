@@ -1,11 +1,7 @@
-import {
-  ALL_MEETUP_PAGE,
-  FAVORITES_PAGE,
-  NEW_MEETUP_PAGE,
-} from "./../../utils/constants";
 import { useScroll } from "./../../util-hooks/useScroll";
 import classes from "./MainNavigation.module.css";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 
 export default function MainNavigation({ setPage }) {
   const { isScrollingUp, isScrollingDown } = useScroll();
@@ -22,30 +18,17 @@ export default function MainNavigation({ setPage }) {
       <nav>
         <ul>
           <li>
-            <a
-              href="http://localhost:3000/all_meetups"
-              onClick={() => setPage(ALL_MEETUP_PAGE)}
-            >
-              All Meetups
-            </a>
+            <NavLink to="meetups">All Meetups</NavLink>
           </li>
 
           <li>
-            <a
-              href="http://localhost:3000/add_meetups"
-              onClick={() => setPage(NEW_MEETUP_PAGE)}
-            >
-              Add New Meetups
-            </a>
+            <NavLink to="meetups/add">Add New Meetup</NavLink>
           </li>
           <li>
-            <a
-              href="http://localhost:3000/meetups_favorites"
-              onClick={() => setPage(FAVORITES_PAGE)}
-            >
+            <NavLink to="favorites">
               My Favorites
               <span className={classes.badge}>{0}</span>
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>
