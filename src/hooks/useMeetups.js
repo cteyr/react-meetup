@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-
+import { v4 } from "uuid";
 import { useFetch } from "../util-hooks/useFetch";
 const useMeetups = () => {
   const { data } = useFetch({
@@ -13,7 +13,10 @@ const useMeetups = () => {
   const favoritesCount = useMemo(() => favorites?.length, [favorites]);
 
   const addMeetup = (meetup) => {
-    setMeetups((meetups) => [...meetups, { ...meetup, isFavorite: false }]);
+    setMeetups((meetups) => [
+      ...meetups,
+      { ...meetup, id: v4(), isFavorite: false },
+    ]);
   };
 
   const toggleFavorite = (id) => {

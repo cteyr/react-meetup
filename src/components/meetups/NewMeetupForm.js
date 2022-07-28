@@ -17,6 +17,7 @@ export default function NewMeetupForm() {
   function submitHandler(event) {
     event.preventDefault();
     addMeetup(formValues);
+    setFormValues({});
   }
 
   return (
