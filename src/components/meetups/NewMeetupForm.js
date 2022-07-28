@@ -1,13 +1,21 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { useMeetupsContext } from "../../context/MeetupsProvider";
 import Card from "../ui/Card";
 import classes from "./NewMeetupForm.module.css";
 
+const FORM_INITIAL_VALUES = {
+  title: "",
+  description: "",
+  image: "",
+  address: "",
+};
+
 export default function NewMeetupForm() {
   const { addMeetup } = useMeetupsContext();
-
-  const [formValues, setFormValues] = useState({});
+  const [formValues, setFormValues] = useState(FORM_INITIAL_VALUES);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,7 +25,8 @@ export default function NewMeetupForm() {
   function submitHandler(event) {
     event.preventDefault();
     addMeetup(formValues);
-    setFormValues({});
+    setFormValues(FORM_INITIAL_VALUES);
+    navigate("/meetups");
   }
 
   return (
@@ -30,6 +39,7 @@ export default function NewMeetupForm() {
             type="text"
             required
             id="title"
+            value={formValues.title}
             onChange={handleChange}
           />
         </div>
@@ -40,6 +50,7 @@ export default function NewMeetupForm() {
             type="url"
             required
             id="image"
+            value={formValues.image}
             onChange={handleChange}
           />
         </div>
@@ -50,6 +61,7 @@ export default function NewMeetupForm() {
             type="text"
             required
             id="address"
+            value={formValues.address}
             onChange={handleChange}
           />
         </div>
@@ -60,6 +72,7 @@ export default function NewMeetupForm() {
             id="description"
             required
             rows="5"
+            value={formValues.description}
             onChange={handleChange}
           ></textarea>
         </div>
