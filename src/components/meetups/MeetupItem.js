@@ -1,8 +1,10 @@
 import classes from "./MeetupItem.module.css";
 import Card from "../ui/Card";
+import { useMeetupsContext } from "../../context/MeetupsProvider";
 
 export default function MeetupItem({ item }) {
   const { title, image, address, description } = item;
+  const { toggleFavorite } = useMeetupsContext();
   return (
     <li className={classes.item} data-test="meet-up-item">
       <Card>
@@ -15,7 +17,13 @@ export default function MeetupItem({ item }) {
           <p>{description}</p>
         </div>
         <div className={classes.actions}>
-          <button>Add to favorites</button>
+          <button
+            onClick={() => {
+              toggleFavorite(item.id);
+            }}
+          >
+            {item.isFavorite ? "Remove from favorites" : "Add to favorites"}
+          </button>
         </div>
       </Card>
     </li>

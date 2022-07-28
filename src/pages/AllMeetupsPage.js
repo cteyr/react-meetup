@@ -1,19 +1,15 @@
 import MeetupItem from "../components/meetups/MeetupItem";
+import { useMeetupsContext } from "../context/MeetupsProvider";
 import classes from "./../components/meetups/MeetupList.module.css";
-import { useFetch } from "./../util-hooks/useFetch";
 
 export default function AllMeetupsPage() {
-  const { data } = useFetch({
-    url: "/data.json",
-  });
-
-  if (!data) return <p>Loading...</p>;
+  const { meetups } = useMeetupsContext();
 
   return (
     <section>
       <h1>All Meetups</h1>
       <ul className={classes.list}>
-        {data.map((item) => (
+        {meetups?.map((item) => (
           <MeetupItem key={item.id} item={item} />
         ))}
       </ul>

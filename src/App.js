@@ -4,20 +4,23 @@ import FavoritesPage from "./pages/Favorites";
 import NewMeetupsPage from "./pages/NewMeetup";
 import MainNavigation from "./components/layout/MainNavigation";
 import Layout from "./components/layout/Layout";
+import { MeetupsProvider } from "./context/MeetupsProvider";
 
 function App() {
   return (
     <div data-test="app">
       <BrowserRouter>
-        <MainNavigation setPage={<AllMeetupsPage />} />
-        <Layout>
-          <Routes>
-            <Route index element={<AllMeetupsPage />} />
-            <Route path="/favorites" element={<FavoritesPage />} />
-            <Route path="/meetups" element={<AllMeetupsPage />} />
-            <Route path="/meetups/add" element={<NewMeetupsPage />} />
-          </Routes>
-        </Layout>
+        <MeetupsProvider>
+          <MainNavigation setPage={<AllMeetupsPage />} />
+          <Layout>
+            <Routes>
+              <Route index element={<AllMeetupsPage />} />
+              <Route path="/favorites" element={<FavoritesPage />} />
+              <Route path="/meetups" element={<AllMeetupsPage />} />
+              <Route path="/meetups/add" element={<NewMeetupsPage />} />
+            </Routes>
+          </Layout>
+        </MeetupsProvider>
       </BrowserRouter>
     </div>
   );
