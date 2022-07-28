@@ -3,12 +3,21 @@ import {
   FAVORITES_PAGE,
   NEW_MEETUP_PAGE,
 } from "./../../utils/constants";
-
+import { useScroll } from "./../../util-hooks/useScroll";
 import classes from "./MainNavigation.module.css";
+import classNames from "classnames";
 
 export default function MainNavigation({ setPage }) {
+  const { isScrollingUp, isScrollingDown } = useScroll();
+
   return (
-    <header className={classes.header} data-test="navigation-header">
+    <header
+      className={classNames(classes.header, {
+        [classes["scroll-up"]]: isScrollingUp,
+        [classes["scroll-down"]]: isScrollingDown,
+      })}
+      data-test="navigation-header"
+    >
       <div className={classes.logo}>React Meetups</div>
       <nav>
         <ul>
