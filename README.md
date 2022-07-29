@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 # React-Meetups
 
 ![Design preview for the React-Meetups coding](./design/react-meetups.png)
+
 ![Design preview for the React-Meetups coding](./design/react-add-meetups.png)
 
 ## Available Scripts
