@@ -12,6 +12,13 @@
   transform-origin: top left;
 }
 
+@media screen and (max-width: 468px) {
+  .header{
+    padding: 0 5%;
+  }
+} 
+
+
 .scroll-up {
   opacity: 1;
 }
@@ -27,6 +34,12 @@
   font-weight: bold;
 }
 
+@media screen and (max-width: 468px) {
+  .logo{
+    font-size: 1.5rem;
+  }
+} 
+
 .header ul {
   list-style: none;
   margin: 0;
@@ -34,6 +47,12 @@
   display: flex;
   align-items: baseline;
 }
+
+@media screen and (max-width: 468px) {
+  .header ul{
+    display: none;
+  }
+} 
 
 .header li {
   margin-left: 3rem;

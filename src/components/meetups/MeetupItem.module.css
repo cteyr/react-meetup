@@ -9,6 +9,12 @@
     border-top-right-radius: 6px;
     border-top-left-radius: 6px;
   }
+
+  @media screen and (max-width: 468px) {
+    .image{
+      height: auto;
+    }
+  } 
   
   .image img {
     width: 100%;
