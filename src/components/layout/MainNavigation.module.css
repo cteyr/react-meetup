@@ -12,6 +12,25 @@
   transform-origin: top left;
 }
 
+.hamburguer{
+  display: flex;
+  background: url("../../assets/images/shared/icon-hamburger.svg") center center
+    no-repeat;
+    width: 20%;
+    height: 100%;
+    position: absolute;
+    right: 0px;
+}
+.hamburguer:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 468px) {
+  .hamburguer{
+    display: none;
+  }
+}
+
 @media screen and (max-width: 468px) {
   .header{
     padding: 0 5%;

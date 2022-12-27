@@ -17,6 +17,7 @@ export default function MainNavigation({ setPage }) {
       data-test="navigation-header"
     >
       <div className={classes.logo}>React Meetups</div>
+      <div className={classes.hamburguer}></div>
       <nav>
         <ul>
           <li>
