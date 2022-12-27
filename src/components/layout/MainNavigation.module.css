@@ -71,7 +71,7 @@
   .header ul{
     display: none;
   }
-} 
+}
 
 .header li {
   margin-left: 3rem;
@@ -81,6 +81,12 @@
   text-decoration: none;
   font-size: 1.5rem;
   color: #fcb8d2;
+}
+
+@media screen and (max-width: 468px) {
+  .header a{
+    font-size: 1rem;
+  }
 }
 
 .header a:hover,
