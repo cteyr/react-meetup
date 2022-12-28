@@ -16,13 +16,25 @@
   display: flex;
   background: url("../../assets/images/shared/icon-hamburger.svg") center center
     no-repeat;
-    width: 20%;
+    width: 17%;
     height: 100%;
     position: absolute;
     right: 0px;
 }
 .hamburguer:hover {
   cursor: pointer;
+}
+
+.hamburguer::after{
+  content: '';
+  display: none;
+  position: absolute;
+  width: 300%;
+  height: 250%;
+  margin-top: 3.7rem;
+  right: 30%;
+  background-color: white;
+  border-radius: 6px;
 }
 
 @media screen and (min-width: 468px) {
@@ -59,6 +71,33 @@
   }
 } 
 
+@media screen and (max-width: 468px) {
+  .navBar{
+    background-color: #fcf3f6;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 9rem;
+    right: 5%;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+  }
+
+  .navBar > ul > li {
+    margin: 0rem;
+  }
+
+  .navBar > ul > li > a {
+    color: black;
+    font-weight: bold;
+  }
+  .navBar > ul > li > a:hover {
+    color: black;
+  }
+  
+}
+
 .header ul {
   list-style: none;
   margin: 0;
@@ -85,7 +124,7 @@
 
 @media screen and (max-width: 468px) {
   .header a{
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 

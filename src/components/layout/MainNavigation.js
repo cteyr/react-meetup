@@ -14,8 +14,10 @@ export default function MainNavigation({ setPage }) {
     const pageWidth  = document.documentElement.scrollWidth;
     if(pageWidth<=468){
       document.getElementById("listNav").style.display = "none";
+      setActivate(true);
     }else{
       document.getElementById("listNav").style.display = "flex";
+      document.getElementById("listNav").style.flexDirection = "row" ;
     }
   });
 
@@ -23,9 +25,13 @@ export default function MainNavigation({ setPage }) {
     if(isActivate===false){
       setActivate(true);
       document.getElementById("listNav").style.display = "none";
+      document.getElementById("listNav").style.flexDirection = "row";
     }else{
       setActivate(false);
       document.getElementById("listNav").style.display = "flex";
+      document.getElementById("listNav").style.flexDirection = "column";
+      document.getElementById("listNav").style.padding = "1rem";
+      document.getElementById("listNav").style.gap = "0.2rem";
     }
   };
 
@@ -39,7 +45,7 @@ export default function MainNavigation({ setPage }) {
     >
       <div className={classes.logo}>React Meetups</div>
       <div className={classes.hamburguer} onClick={onClickHamburguer}></div>
-      <nav>
+      <nav className={classes.navBar}>
         <ul id="listNav">
           <li>
             <NavLink to="meetups">All Meetups</NavLink>
