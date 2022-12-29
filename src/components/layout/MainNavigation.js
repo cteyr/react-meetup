@@ -10,11 +10,12 @@ export default function MainNavigation({ setPage }) {
   const { favoritesCount } = useMeetupsContext();
   const [isActivate, setActivate] = useState(true);
 
-  document.addEventListener('mouseup', function(e) { // Al hacer click fuera del elemento id="listNav" se cierra el toogle-menu
+  document.addEventListener('mouseup', function(e) { // Al hacer click fuera del elemento id="listNav" && id="icon-hamburguer" se cierra el toogle-menu
     var container = document.getElementById('listNav');
-    if (!container.contains(e.target)) {
-      document.getElementById("listNav").style.display = "none";
-      setActivate(true);
+    var container2 = document.getElementById('icon-hamburguer');
+    if (!container.contains(e.target)&&!container2.contains(e.target)&& document.getElementById("listNav").style.flexDirection == "column") {
+        document.getElementById("listNav").style.display = "none";
+        setActivate(true);
     }
   });
 
@@ -31,15 +32,15 @@ export default function MainNavigation({ setPage }) {
 
   const onClickHamburguer =() =>   {
     if(isActivate===false){
-      setActivate(true);
       document.getElementById("listNav").style.display = "none";
       document.getElementById("listNav").style.flexDirection = "row";
-    }else{
-      setActivate(false);
+      setActivate(true);
+    }else if(isActivate===true){     
       document.getElementById("listNav").style.display = "flex";
       document.getElementById("listNav").style.flexDirection = "column";
       document.getElementById("listNav").style.padding = "1rem";
       document.getElementById("listNav").style.gap = "0.2rem";
+      setActivate(false);
     }
   };
 
@@ -52,7 +53,7 @@ export default function MainNavigation({ setPage }) {
       data-test="navigation-header"
     >
       <div className={classes.logo}>React Meetups</div>
-      <div className={classes.hamburguer} onClick={onClickHamburguer}></div>
+      <div id="icon-hamburguer" className={classes.hamburguer} onClick={onClickHamburguer}></div>
       <nav className={classes.navBar}>
         <ul id="listNav">
           <li>
