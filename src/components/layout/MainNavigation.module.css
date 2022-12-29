@@ -16,10 +16,10 @@
   display: flex;
   background: url("../../assets/images/shared/icon-hamburger.svg") center center
     no-repeat;
-    width: 17%;
-    height: 100%;
+    width: 8%;
+    height: 40%;
     position: absolute;
-    right: 0px;
+    right: 1rem;
 }
 .hamburguer:hover {
   cursor: pointer;
