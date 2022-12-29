@@ -13,14 +13,14 @@ export default function MainNavigation({ setPage }) {
   document.addEventListener('mouseup', function(e) { // Al hacer click fuera del elemento id="listNav" && id="icon-hamburguer" se cierra el toogle-menu
     var container = document.getElementById('listNav');
     var container2 = document.getElementById('icon-hamburguer');
-    if (!container.contains(e.target)&&!container2.contains(e.target)&& document.getElementById("listNav").style.flexDirection == "column") {
+    if ((!container.contains(e.target) && !container2.contains(e.target)) && document.getElementById("listNav").style.flexDirection === "column") {
         document.getElementById("listNav").style.display = "none";
         setActivate(true);
     }
   });
 
   window.addEventListener("resize", function(){
-    const pageWidth  = document.documentElement.scrollWidth;
+    const pageWidth = document.documentElement.scrollWidth;
     if(pageWidth<=468){
       document.getElementById("listNav").style.display = "none";
       setActivate(true);
