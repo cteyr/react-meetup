@@ -10,6 +10,14 @@ export default function MainNavigation({ setPage }) {
   const { favoritesCount } = useMeetupsContext();
   const [isActivate, setActivate] = useState(true);
 
+  document.addEventListener('mouseup', function(e) { // Al hacer click fuera del elemento id="listNav" se cierra el toogle-menu
+    var container = document.getElementById('listNav');
+    if (!container.contains(e.target)) {
+      document.getElementById("listNav").style.display = "none";
+      setActivate(true);
+    }
+  });
+
   window.addEventListener("resize", function(){
     const pageWidth  = document.documentElement.scrollWidth;
     if(pageWidth<=468){
