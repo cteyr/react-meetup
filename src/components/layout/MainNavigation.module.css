@@ -85,14 +85,25 @@
   }
 
   .navBar > ul > li {
+    display: flex;
+    width: 100%;
     margin: 0rem;
   }
 
+  @media screen and (max-width: 468px) {
+    .navBar > ul > li >a:hover {
+      background-color: #77002e;
+      border-radius: 4px;
+    }
+  } 
+
   .navBar > ul > li > a {
+    width: 100%;
     color: black;
   }
+  
   .navBar > ul > li > a:hover {
-    color: black;
+    color: white;
   }
   
 }

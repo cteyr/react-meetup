@@ -10,7 +10,7 @@ export default function MainNavigation({ setPage }) {
   const { favoritesCount } = useMeetupsContext();
   const [isActivate, setActivate] = useState(true);
 
-  document.addEventListener('mouseup', function(e) { // Al hacer click fuera del elemento id="listNav" && id="icon-hamburguer" se cierra el toogle-menu
+  document.addEventListener('mouseup', function(e) { // Al hacer click fuera de un elemento se ejecuta lo que esta dentro de esta funcion 
     var listNavBar = document.getElementById('listNav');
     var iconHamburguer = document.getElementById('icon-hamburguer');
     if ((!listNavBar.contains(e.target) && !iconHamburguer.contains(e.target)) && document.getElementById("listNav").style.flexDirection === "column") {
