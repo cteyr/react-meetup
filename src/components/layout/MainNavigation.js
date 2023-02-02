@@ -11,12 +11,20 @@ export default function MainNavigation({ setPage }) {
   const [isActivate, setActivate] = useState(true);
 
   document.addEventListener('mouseup', function(e) { // Al hacer click fuera del elemento id="listNav" && id="icon-hamburguer" se cierra el toogle-menu
-    var container = document.getElementById('listNav');
-    var container2 = document.getElementById('icon-hamburguer');
-    if ((!container.contains(e.target) && !container2.contains(e.target)) && document.getElementById("listNav").style.flexDirection === "column") {
+    var listNavBar = document.getElementById('listNav');
+    var iconHamburguer = document.getElementById('icon-hamburguer');
+    if ((!listNavBar.contains(e.target) && !iconHamburguer.contains(e.target)) && document.getElementById("listNav").style.flexDirection === "column") {
         document.getElementById("listNav").style.display = "none";
         setActivate(true);
     }
+
+    var tag_li1 = document.getElementById('tag_li1');
+    var tag_li2 = document.getElementById('tag_li2');
+    var tag_li3 = document.getElementById('tag_li3');
+    if ( (tag_li1.contains(e.target) || tag_li2.contains(e.target) || tag_li3.contains(e.target) ) && document.getElementById("listNav").style.flexDirection === "column") {
+      document.getElementById("listNav").style.display = "none";
+      setActivate(true);
+  }
   });
 
   window.addEventListener("resize", function(){
@@ -56,14 +64,14 @@ export default function MainNavigation({ setPage }) {
       <div id="icon-hamburguer" className={classes.hamburguer} onClick={onClickHamburguer}></div>
       <nav className={classes.navBar}>
         <ul id="listNav">
-          <li>
+          <li id="tag_li1">
             <NavLink to="meetups">All Meetups</NavLink>
           </li>
 
-          <li>
+          <li id="tag_li2">
             <NavLink to="meetups/add">Add New Meetup</NavLink>
           </li>
-          <li>
+          <li id="tag_li3">
             <NavLink to="favorites">
               My Favorites
               <span className={classes.badge}>{favoritesCount}</span>
